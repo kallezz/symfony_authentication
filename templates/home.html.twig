@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony Authentication{% endblock %}
+
+{% block main %}
+
+    <div class="row justify-content-center mt-3 text-center">
+        <div class="col">
+            {% if is_granted('ROLE_USER') %}
+                <h3>Welcome admin!</h3>
+                <a href="{{ path('logout') }}" class="btn btn-primary mt-3">Logout</a>
+            {% else %}
+                <h3>Go and login!</h3>
+                <a href="{{ path('login') }}" class="btn btn-primary mt-3">Login</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
